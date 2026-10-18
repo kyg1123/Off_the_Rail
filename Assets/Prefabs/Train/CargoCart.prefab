@@ -262,6 +262,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2ac6f8414ad83fd44b429be755b8b5c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: abf3e62205ca7a54cbd318e4256b801f, type: 2}
     - target: {fileID: 919132149155446097, guid: 2ac6f8414ad83fd44b429be755b8b5c1, type: 3}
       propertyPath: m_Name
       value: floor-stone (1)
@@ -508,6 +512,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2ac6f8414ad83fd44b429be755b8b5c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: abf3e62205ca7a54cbd318e4256b801f, type: 2}
     - target: {fileID: 919132149155446097, guid: 2ac6f8414ad83fd44b429be755b8b5c1, type: 3}
       propertyPath: m_Name
       value: floor-stone (2)
@@ -595,6 +603,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2ac6f8414ad83fd44b429be755b8b5c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: abf3e62205ca7a54cbd318e4256b801f, type: 2}
     - target: {fileID: 919132149155446097, guid: 2ac6f8414ad83fd44b429be755b8b5c1, type: 3}
       propertyPath: m_Name
       value: floor-stone

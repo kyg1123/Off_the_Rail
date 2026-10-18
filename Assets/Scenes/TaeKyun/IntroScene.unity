@@ -995,6 +995,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioPlayerPrefab: {fileID: 3252940590143805546, guid: 4566ceab4c6ba6046bc15b6c408431f3, type: 3}
+  _bgmG: {fileID: 2752187966895981977, guid: ef2952bc94e4ece4eb6a4cdcbe18b5b3, type: 2}
+  _sfxG: {fileID: -4702478139117473570, guid: ef2952bc94e4ece4eb6a4cdcbe18b5b3, type: 2}
 --- !u!4 &963237748
 Transform:
   m_ObjectHideFlags: 0
@@ -1039,6 +1041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3b660b48e9a2343bcd42311e9da60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _introClip: {fileID: 8300000, guid: 62126cd88ff30334c88fd4416b032ac4, type: 3}
 --- !u!4 &1157848084
 Transform:
   m_ObjectHideFlags: 0
@@ -1218,6 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39c40ab2e301de46873960ee56ba76c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: ef2952bc94e4ece4eb6a4cdcbe18b5b3, type: 2}
   _isPause: 0
   _isSelectNow: 0
 --- !u!4 &1666402556
