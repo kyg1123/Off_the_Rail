@@ -26,6 +26,14 @@ public class DetectRange : MonoBehaviour
     private void Start() => Init();
     // ------------------------------
 
+    public void SetRadius(float radius)
+    {
+        if (_sphereCollider != null)
+        {
+            _sphereCollider.radius = radius;
+        }
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         IInteractable interactable = other.GetComponent<IInteractable>();

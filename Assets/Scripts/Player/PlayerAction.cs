@@ -13,10 +13,13 @@ public class PlayerAction : MonoBehaviour
     private const float DASH_SPEED_BONUS = 0.5f;
     private const float DASH_DURATION = 0.3f;
     private const float DASH_COOLDOWN = 1f;
+    private const float DEFAULT_DETECT_RADIUS = 1.75f;
+    private const float ITEM_DETECT_RADIUS = 0.8f;
     private const string PARAM_IS_MOVING = "IsMoving";
     private const string PARAM_IS_HOLDING = "IsHolding";
     private const string PARAM_IS_HOLDING_TOOL = "IsHoldingTool";
     private const string PARAM_IS_USING = "IsUsing";
+    
 
     [SerializeField] private Rigidbody _playerBody;
     [SerializeField] private PlayerHand _hand;
@@ -117,7 +120,11 @@ public class PlayerAction : MonoBehaviour
         Map.Instance.RemoveLoadedPoolable(newInteractable as IPoolable);
 
         _hand.Item = newInteractable;
-        if (newInteractable == null) return;
+        if (newInteractable == null)
+        {
+            _detectRange.SetRadius(DEFAULT_DETECT_RADIUS);
+            return;
+        }
 
         _animator.SetLayerWeight(1, 1f);
        
@@ -130,22 +137,30 @@ public class PlayerAction : MonoBehaviour
             _animator.SetBool(PARAM_IS_HOLDING_TOOL, true);
             _hand.Item.GameObject.transform.Rotate(-45f, -90f, 0);
             tool.ToolUI(false);
+            
+            _detectRange.SetRadius(DEFAULT_DETECT_RADIUS);
         }
         else
         {
             _animator.SetBool(PARAM_IS_HOLDING, true);
+            _detectRange.SetRadius(ITEM_DETECT_RADIUS);
         }
 
         Rail rail = newInteractable as Rail;
         if (rail != null)
         {
             rail.UpdateStackVisuals();
+            _detectRange.SetRadius(ITEM_DETECT_RADIUS);
         }
+        
+        
 
         _hand.Item.GameObject.layer = 2;
         _hand.ItemPosition = _hand.transform.position;
         _hand.ItemParent = _hand.transform;
         _detectRange.Detecteds.Remove(_hand.Item);
+        
+        
     }
 
     
@@ -169,6 +184,7 @@ public class PlayerAction : MonoBehaviour
                     if (rail.Count == 0)
                     {
                         _hand.Item = null;
+                        _detectRange.SetRadius(DEFAULT_DETECT_RADIUS);
                     }
                     return;
                 }
@@ -197,6 +213,8 @@ public class PlayerAction : MonoBehaviour
         Map.Instance.SetHoldable(position, _hand.Item);
 
         _hand.Item = null;
+        
+        _detectRange.SetRadius(DEFAULT_DETECT_RADIUS);
     }
 
     /// <summary>
@@ -227,7 +245,11 @@ public class PlayerAction : MonoBehaviour
 
     public void OnMine()
     {
-        _target.AutoInteract(_hand.Item);
+        if (_target != null)
+        {
+            _target.AutoInteract(_hand.Item);
+
+        }
     }
 
     public void OnWalk()
@@ -252,5 +274,6 @@ public class PlayerAction : MonoBehaviour
         _moveSpeed = BASE_MOVE_SPEED;
         _canDash = true;
         _walkAudioPlayer = AudioManager.Instance.Take();
+        //_detectRange.SetRadius(DEFAULT_DETECT_RADIUS);
     }
 }
