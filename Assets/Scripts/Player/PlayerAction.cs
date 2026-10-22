@@ -13,8 +13,8 @@ public class PlayerAction : MonoBehaviour
     private const float DASH_SPEED_BONUS = 0.5f;
     private const float DASH_DURATION = 0.3f;
     private const float DASH_COOLDOWN = 1f;
-    private const float DEFAULT_DETECT_RADIUS = 1.75f;
-    private const float ITEM_DETECT_RADIUS = 0.8f;
+    private const float DEFAULT_DETECT_RADIUS = 1.5f;
+    private const float ITEM_DETECT_RADIUS = 1f;
     private const string PARAM_IS_MOVING = "IsMoving";
     private const string PARAM_IS_HOLDING = "IsHolding";
     private const string PARAM_IS_HOLDING_TOOL = "IsHoldingTool";
@@ -273,7 +273,7 @@ public class PlayerAction : MonoBehaviour
     {
         _moveSpeed = BASE_MOVE_SPEED;
         _canDash = true;
-        _walkAudioPlayer = AudioManager.Instance.Take();
-        //_detectRange.SetRadius(DEFAULT_DETECT_RADIUS);
+        _walkAudioPlayer = AudioManager.Instance.Take(); 
+        _detectRange.SetRadius(DEFAULT_DETECT_RADIUS);
     }
 }
