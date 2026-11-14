@@ -112,6 +112,13 @@ public class TitleSceneManager : MonoBehaviour
         RefreshText();
     }
 
+    // 저장된 최고 기록(점수, 시간)을 초기화하고 화면을 갱신. 버튼의 UnityEvent에 등록해서 사용
+    public void ResetRecord()
+    {
+        _pDataManager.DeleteData();
+        FindHighScore();
+    }
+
     private void RefreshText()
     {
         _highT.GetComponent<TextNumChanger>().ChangeTimeNum(_highTime);

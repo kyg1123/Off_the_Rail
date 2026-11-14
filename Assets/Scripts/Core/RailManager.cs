@@ -134,6 +134,10 @@ public class RailManager : MonoBehaviour
     // 모양을 바꿀 대상 레일 선정 : 새로 설치된 레일 및 기존에 가장 마지막이였던 레일
     private void UpdateRailwayShape()
     {
+        // 레일이 하나도 남지 않은 경우(시작 레일까지 전부 회수) 모양을 바꿀 대상이 없으므로 중단
+        // Rails가 비어 있으면 Rails.Last가 null이라 아래 줄에서 예외가 발생함
+        if (Rails.Count == 0) return;
+
         // (신규 레일 설치 전) 기존 마지막 레일의 직전 노드를 가져와 변수에 대입
         LinkedListNode<Rail> prevRailNode = Rails.Last.Previous;
 
@@ -356,10 +360,12 @@ public class RailManager : MonoBehaviour
 
         LinkedListNode<Rail> railNode = Rails.First;
 
+        // 레일이 하나도 없으면 railNode가 null이므로, null이 아닐 때만 다음 노드로 넘어감
         if (railNode != null)
+        {
             initialPosition = railNode.Value.GameObject.transform.position.x;
-
-        railNode = railNode.Next;
+            railNode = railNode.Next;
+        }
 
         while (railNode != null)
         {

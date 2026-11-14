@@ -177,7 +177,8 @@ public class Rail : MonoBehaviour, IInteractable, IStackable, IPoolable
                     return inPlayerHand;
                 }
             }
-            if (RailManager.Instance.Rails.Last.Value == this)
+            // Rails가 비어 있으면 Last가 null이므로 ?. 로 null을 허용 (끝 레일은 Rails에 없는 레일 타일)
+            if (RailManager.Instance.Rails.Last?.Value == this)
             {
                 IsRailway = false;
                 RailManager.Instance.RemoveLastRailway();
@@ -222,7 +223,7 @@ public class Rail : MonoBehaviour, IInteractable, IStackable, IPoolable
     public void Targeted()
     {
         // "레일이 아이템 상태" 또는 "맨 마지막에 설치된 레일 타일"일 때
-        if (!IsRailway || this == RailManager.Instance.Rails.Last.Value) 
+        if (!IsRailway || this == RailManager.Instance.Rails.Last?.Value)
             // 테두리 적용
             _outline.enabled = true;
     }

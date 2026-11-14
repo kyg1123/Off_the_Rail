@@ -26,4 +26,15 @@ public class PlayDataManager : MonoBehaviour
         
         return playDataList;
     }
+
+    // 저장된 모든 기록(playdata.json)을 삭제
+    public void DeleteData()
+    {
+        string path = Application.persistentDataPath + "/playdata.json";
+
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
 }
