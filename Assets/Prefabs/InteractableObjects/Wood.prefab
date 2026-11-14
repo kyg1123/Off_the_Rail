@@ -50,6 +50,7 @@ MonoBehaviour:
   _visualTop: {fileID: 702784140495568166}
   _visualMiddle: {fileID: 3807580429067341865}
   _visualBottom: {fileID: 6004633006734513974}
+  <Count>k__BackingField: 0
   _outline: {fileID: 2680396813200547685}
 --- !u!114 &2680396813200547685
 MonoBehaviour:
@@ -64,8 +65,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 10
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 3
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
